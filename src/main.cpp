@@ -1,5 +1,5 @@
 #include <iostream>
-#include <matrix.hpp>
+#include <Matrix/matrix.hpp>
 #include <cstdlib>
 #include <windows.h>
 #include <string.h>

@@ -1,9 +1,11 @@
+#ifndef matrix_hpp
+#define matrix_hpp
+
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
 #include <string>
 #include <string.h>
-
 
 
 class matrix
@@ -29,3 +31,5 @@ class matrix
     void store(std::string ,std::string );
   
 };
+
+#endif

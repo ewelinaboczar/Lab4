@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include <matrix.hpp>
+#include <Matrix/matrix.hpp>
 
 using namespace std;
 
@@ -210,4 +210,3 @@ void matrix::store(string filename, string path)
     }
     file.close();
 }
-

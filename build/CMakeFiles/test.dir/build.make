@@ -75,19 +75,19 @@ include CMakeFiles/test.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/test.dir/flags.make
 
-CMakeFiles/test.dir/test/main.cpp.obj: CMakeFiles/test.dir/flags.make
-CMakeFiles/test.dir/test/main.cpp.obj: CMakeFiles/test.dir/includes_CXX.rsp
-CMakeFiles/test.dir/test/main.cpp.obj: ../test/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Studia\Semestr_III\JIPP\Laboratorium_4\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/test.dir/test/main.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\test.dir\test\main.cpp.obj -c E:\Studia\Semestr_III\JIPP\Laboratorium_4\test\main.cpp
+CMakeFiles/test.dir/src/main.cpp.obj: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/src/main.cpp.obj: CMakeFiles/test.dir/includes_CXX.rsp
+CMakeFiles/test.dir/src/main.cpp.obj: ../src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Studia\Semestr_III\JIPP\Laboratorium_4\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/test.dir/src/main.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\test.dir\src\main.cpp.obj -c E:\Studia\Semestr_III\JIPP\Laboratorium_4\src\main.cpp
 
-CMakeFiles/test.dir/test/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/test/main.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Studia\Semestr_III\JIPP\Laboratorium_4\test\main.cpp > CMakeFiles\test.dir\test\main.cpp.i
+CMakeFiles/test.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/src/main.cpp.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Studia\Semestr_III\JIPP\Laboratorium_4\src\main.cpp > CMakeFiles\test.dir\src\main.cpp.i
 
-CMakeFiles/test.dir/test/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/test/main.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Studia\Semestr_III\JIPP\Laboratorium_4\test\main.cpp -o CMakeFiles\test.dir\test\main.cpp.s
+CMakeFiles/test.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/src/main.cpp.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Studia\Semestr_III\JIPP\Laboratorium_4\src\main.cpp -o CMakeFiles\test.dir\src\main.cpp.s
 
 CMakeFiles/test.dir/src/matrix.cpp.obj: CMakeFiles/test.dir/flags.make
 CMakeFiles/test.dir/src/matrix.cpp.obj: CMakeFiles/test.dir/includes_CXX.rsp
@@ -105,13 +105,13 @@ CMakeFiles/test.dir/src/matrix.cpp.s: cmake_force
 
 # Object files for target test
 test_OBJECTS = \
-"CMakeFiles/test.dir/test/main.cpp.obj" \
+"CMakeFiles/test.dir/src/main.cpp.obj" \
 "CMakeFiles/test.dir/src/matrix.cpp.obj"
 
 # External object files for target test
 test_EXTERNAL_OBJECTS =
 
-test.exe: CMakeFiles/test.dir/test/main.cpp.obj
+test.exe: CMakeFiles/test.dir/src/main.cpp.obj
 test.exe: CMakeFiles/test.dir/src/matrix.cpp.obj
 test.exe: CMakeFiles/test.dir/build.make
 test.exe: CMakeFiles/test.dir/linklibs.rsp
