@@ -63,7 +63,7 @@ matrix::matrix(std::string path)
 
 matrix::matrix (int r, int c)
 {
-    if(r<=0 && c<=0)
+    if(r<=0 || c<=0)
     {
         throw WrongElement();
     }
