@@ -9,16 +9,19 @@ using namespace std;
 
 int main()
 {
+    
     system("cls");
     bool p=true;
 
     while(p)
     {
+        try
+        {
         cout<<"Wybierz:"<<endl;
         cout<<"0. Koniec"<<endl;
-        cout<<"1. Stworz macierz kwadratowa n x n"<<endl;
-        cout<<"2. Stworz macierz n x m"<<endl;
-        cout<<"3. Wczytaj macierz z pliku"<<endl;
+        cout<<"1. Stworz macierz kwadratowa n x n (test pierwszego konstruktora)"<<endl;
+        cout<<"2. Stworz macierz n x m (test drugiego konstruktora)"<<endl;
+        cout<<"3. Wczytaj macierz z pliku (test trzeciego konstruktora)"<<endl;
         int ch;
         cin>>ch;
         switch(ch)
@@ -45,8 +48,8 @@ int main()
                     int wybor_m2;
                     cout<<"Najpierw wygenerujemy macierz m2"<<endl;
                     cout<<"0. Koniec"<<endl;
-                    cout<<"1. Dodaj element macierzy m2"<<endl;
-                    cout<<"2. Wyswietl macierz m2"<<endl;
+                    cout<<"1. Dodaj element macierzy m2 (test metody:set())"<<endl;
+                    cout<<"2. Wyswietl macierz m2 (test metody:print())"<<endl;
                     cout<<"Wybierz:"<<endl;
                     cin>>wybor_m2;
                     switch(wybor_m2)
@@ -63,6 +66,7 @@ int main()
                                 cout<<"Podaj wiersz, kolumne i wartosc dla m2:"<<endl;
                                 cin>>n>>m>>val;
                                 m2.set(n,m,val);
+                                
                                 break;
                             } 
                             case 2:
@@ -82,15 +86,15 @@ int main()
                 {
                     cout<<"Wybierz co chcesz zrobic"<<endl;
                     cout<<"0. Koniec"<<endl;
-                    cout<<"1. Pokaz macierz na ekranie"<<endl;
-                    cout<<"2. Dodaj element macierzy"<<endl;
-                    cout<<"3. Pobierz element macierzy"<<endl;
-                    cout<<"4. Dodaj macierze"<<endl;
-                    cout<<"5. Odejmij macierze"<<endl;
-                    cout<<"6. Pomnoz macierze"<<endl;
-                    cout<<"7. Ilosc wierszy macierzy"<<endl;
-                    cout<<"8. Ilosc kolumn macierzy"<<endl;
-                    cout<<"9. Zapisz macierz w pliku"<<endl;
+                    cout<<"1. Pokaz macierz na ekranie (test metody:print())"<<endl;
+                    cout<<"2. Dodaj element macierzy (test metody:set())"<<endl;
+                    cout<<"3. Pobierz element macierzy (test metody:get())"<<endl;
+                    cout<<"4. Dodaj macierze (test metody:add())"<<endl;
+                    cout<<"5. Odejmij macierze (test metody:subtract())"<<endl;
+                    cout<<"6. Pomnoz macierze (test metody:multiply())"<<endl;
+                    cout<<"7. Ilosc wierszy macierzy (test metody:rows())"<<endl;
+                    cout<<"8. Ilosc kolumn macierzy (test metody:cols())"<<endl;
+                    cout<<"9. Zapisz macierz w pliku (test metody:store())"<<endl;
                     
                     int number;
                     cin>>number;
@@ -262,15 +266,15 @@ int main()
                 {
                     cout<<"Wybierz co chcesz zrobic"<<endl;
                     cout<<"0. Koniec"<<endl;
-                    cout<<"1. Pokaz macierz na ekranie"<<endl;
-                    cout<<"2. Dodaj element macierzy"<<endl;
-                    cout<<"3. Pobierz element macierzy"<<endl;
-                    cout<<"4. Dodaj macierze"<<endl;
-                    cout<<"5. Odejmij macierze"<<endl;
-                    cout<<"6. Pomnoz macierze"<<endl;
-                    cout<<"7. Ilosc wierszy macierzy"<<endl;
-                    cout<<"8. Ilosc kolumn macierzy"<<endl;
-                    cout<<"9. Zapisz macierz w pliku"<<endl;
+                    cout<<"1. Pokaz macierz na ekranie (test metody:print())"<<endl;
+                    cout<<"2. Dodaj element macierzy (test metody:set())"<<endl;
+                    cout<<"3. Pobierz element macierzy (test metody:get())"<<endl;
+                    cout<<"4. Dodaj macierze (test metody:add())"<<endl;
+                    cout<<"5. Odejmij macierze (test metody:subtract())"<<endl;
+                    cout<<"6. Pomnoz macierze (test metody:multiply())"<<endl;
+                    cout<<"7. Ilosc wierszy macierzy (test metody:rows())"<<endl;
+                    cout<<"8. Ilosc kolumn macierzy (test metody:cols())"<<endl;
+                    cout<<"9. Zapisz macierz w pliku (test metody:store())"<<endl;
 
                     int number;
                     cin>>number;
@@ -459,7 +463,7 @@ int main()
                 cin>>b;
                 string path=b+"\\\\"+a;
                 cout<<"Sciezka dostepu do pliku: "<<path<<endl;
-
+                
                 matrix macierz3(path);
                 macierz3.print();
                 matrix m2(macierz3.rows(),macierz3.cols());
@@ -505,15 +509,15 @@ int main()
 
                     cout<<"Wybierz co chcesz zrobic"<<endl;
                     cout<<"0. Koniec"<<endl;
-                    cout<<"1. Pokaz macierz na ekranie"<<endl;
-                    cout<<"2. Dodaj element macierzy"<<endl;
-                    cout<<"3. Pobierz element macierzy"<<endl;
-                    cout<<"4. Dodaj macierze"<<endl;
-                    cout<<"5. Odejmij macierze"<<endl;
-                    cout<<"6. Pomnoz macierze"<<endl;
-                    cout<<"7. Ilosc wierszy macierzy"<<endl;
-                    cout<<"8. Ilosc kolumn macierzy"<<endl;
-                    cout<<"9. Zapisz macierz w pliku"<<endl;
+                    cout<<"1. Pokaz macierz na ekranie (test metody:print())"<<endl;
+                    cout<<"2. Dodaj element macierzy (test metody:set())"<<endl;
+                    cout<<"3. Pobierz element macierzy (test metody:get())"<<endl;
+                    cout<<"4. Dodaj macierze (test metody:add())"<<endl;
+                    cout<<"5. Odejmij macierze (test metody:subtract())"<<endl;
+                    cout<<"6. Pomnoz macierze (test metody:multiply())"<<endl;
+                    cout<<"7. Ilosc wierszy macierzy (test metody:rows())"<<endl;
+                    cout<<"8. Ilosc kolumn macierzy (test metody:cols())"<<endl;
+                    cout<<"9. Zapisz macierz w pliku (test metody:store())"<<endl;
                     int number;
                     cin>>number;
                     switch (number)
@@ -623,8 +627,6 @@ int main()
                         {
                             macierz3.multiply(m2);
                         }
-                        
-                        
                         break;
                     }     
                     case 7:
@@ -684,6 +686,12 @@ int main()
                 break;
             }
         }
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
     }
+    
     return 0;
 }

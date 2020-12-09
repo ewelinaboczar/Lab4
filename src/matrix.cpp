@@ -6,6 +6,30 @@
 
 using namespace std;
 
+class WrongElement : public exception
+{
+    virtual const char *what() const throw()
+    {
+        return "Exeption1: Brak zadanego elementu";
+    }
+};
+
+class WrongOpenFile : public exception
+{
+    virtual const char *what() const throw()
+    {
+        return "Exeption2: Blad otwarcia pliku";
+    }
+};
+
+class WrongSize : public exception
+{
+    virtual const char *what() const throw()
+    {
+        return "Exeption3: Zly rozmiar macierzy";
+    }
+};
+
 matrix::matrix(std::string path)
 
 {
@@ -13,8 +37,7 @@ matrix::matrix(std::string path)
     file.open(path);
     if(file.is_open()==false)
     {
-        file.close();cout << "Blad otwarcia pliku" << endl;
-        exit(0);
+        throw WrongOpenFile();
     }
     else
     {
@@ -34,6 +57,7 @@ matrix::matrix(std::string path)
                 file >> mac[i][j];
             }
         }
+        file.close();
     }  
 }
 
@@ -41,7 +65,7 @@ matrix::matrix (int r, int c)
 {
     if(r<=0 && c<=0)
     {
-        cout<<"Podales zle wymiary macierzy(1)"<<endl;
+        throw WrongElement();
     }
     else
     {
@@ -68,7 +92,7 @@ matrix::matrix (int r)
 {
     if(r<=0)
     {
-        cout<<"Podales zle wymiary macierzy(2)"<<endl;
+        throw WrongElement();
     }
     else
     {
@@ -124,9 +148,9 @@ void matrix::print()
 
 void matrix::set(int n,int m,double val)
 {
-    if(n<1 && n>row && m<1 && m>column)
+    if((n<0 || n>row) || (m<1 || m>column))
     {
-        cout<<"Podana wspolrzedna macierzy nie istnieje";
+        throw WrongElement();
     }
     else
     {
@@ -136,61 +160,80 @@ void matrix::set(int n,int m,double val)
 
 double matrix::get(int n,int m)
 {
-    if(n<1 && n>row && m<1 && m>column)
+    if((n<0 || n>=row) || (m<1 || m>=column))
     {
-        cout<<"Podana wspolrzedna macierzy nie istnieje";
-        return 0;
+        throw WrongElement();
     }
     else
     {
         return mac[n-1][m-1];
     }
-    
 }
 
 matrix matrix::add(matrix &m2)
 {
-    matrix add(rows(),cols());
-    for(int i=0;i<row;i++)
+    if(row == m2.rows() && column == m2.cols())
     {
-        for(int j=0;j<column;j++)
+        matrix add(rows(),cols());
+        for(int i=0;i<row;i++)
         {
-            add.mac[i][j]=mac[i][j]+m2.mac[i][j];
-        } 
+            for(int j=0;j<column;j++)
+            {
+                add.mac[i][j]=mac[i][j]+m2.mac[i][j];
+            } 
+        }
+        return add;
     }
-    return add;
+    else
+    {
+        throw WrongSize();
+    }     
 }
 
 matrix matrix::subtract(matrix &m2)
 {
-    matrix new_mac(rows(),cols());
-    for(int i=0;i<row;i++)
+    if(row == m2.rows() && column == m2.cols())
     {
-        for(int j=0;j<column;j++)
+        matrix new_mac(rows(),cols());
+        for(int i=0;i<row;i++)
         {
-            new_mac.mac[i][j]=mac[i][j]-m2.mac[i][j];
+            for(int j=0;j<column;j++)
+            {
+                new_mac.mac[i][j]=mac[i][j]-m2.mac[i][j];
+            }
         }
+        return new_mac;
     }
-    return new_mac;
+    else
+    {
+        throw WrongSize();
+    }
 }
 
 matrix matrix::multiply(matrix &m2)
 {
-    matrix mull(this->rows(),m2.cols());
-		double multiplication=0;
-    for(int i=0;i<this->rows();i++)
+    if(column == m2.rows())
     {
-        for(int j=0;j<m2.cols();j++)
-         {
-            for(int k=0;k<m2.rows();k++)
+    matrix mull(this->rows(),m2.cols());
+            double multiplication=0;
+        for(int i=0;i<this->rows();i++)
+        {
+            for(int j=0;j<m2.cols();j++)
             {
-                multiplication+=(this->mac[i][k]*m2.mac[k][j]);
+                for(int k=0;k<m2.rows();k++)
+                {
+                    multiplication+=(this->mac[i][k]*m2.mac[k][j]);
+                }
+                mull.mac[i][j]=multiplication;
+                multiplication=0;
             }
-            mull.mac[i][j]=multiplication;
-            multiplication=0;
         }
-    }
     return mull;
+    }
+    else
+    {
+        throw WrongSize();
+    }
 }
 
 void matrix::store(string filename, string path)
@@ -198,15 +241,22 @@ void matrix::store(string filename, string path)
     path += "\\" + filename;
     ofstream  file(path);
 
-    file << row << "\t" << column << endl;
-    for(int i=0; i<row; i++)
+    if(file.is_open())
     {
-        for(int j=0; j<column; j++ )
+        file << row << "\t" << column << endl;
+        for(int i=0; i<row; i++)
         {
-            double wart=mac[i][j];
-            file <<wart<< "\t";
+            for(int j=0; j<column; j++ )
+            {
+                double wart=mac[i][j];
+                file <<wart<< "\t";
+            }
+            file << endl;
         }
-        file << endl;
+        file.close();
     }
-    file.close();
+    else
+    {
+        throw WrongOpenFile();
+    }
 }
