@@ -170,7 +170,7 @@ double matrix::get(int n,int m)
     }
 }
 
-matrix matrix::add(matrix &m2)
+matrix matrix::operator+(matrix &m2)
 {
     if(row == m2.rows() && column == m2.cols())
     {
@@ -190,7 +190,7 @@ matrix matrix::add(matrix &m2)
     }     
 }
 
-matrix matrix::subtract(matrix &m2)
+matrix matrix::operator-(matrix &m2)
 {
     if(row == m2.rows() && column == m2.cols())
     {
@@ -210,7 +210,7 @@ matrix matrix::subtract(matrix &m2)
     }
 }
 
-matrix matrix::multiply(matrix &m2)
+matrix matrix::operator*(matrix &m2)
 {
     if(column == m2.rows())
     {

@@ -22,9 +22,9 @@ class matrix
 
     void set(int n,int m,double val);
     double get(int n,int m);
-    matrix add(matrix &m2);
-    matrix subtract(matrix &m2);
-    matrix multiply(matrix &m2);
+    matrix operator+(matrix &m2);
+    matrix operator-(matrix &m2);
+    matrix operator*(matrix &m2);
     int cols();
     int rows();
     void print();

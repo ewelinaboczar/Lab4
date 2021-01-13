@@ -139,7 +139,7 @@ int main()
                     {
                         matrix dodawanie(w);
                         cout<<"Wynik dodawania m2 i macierz2:"<<endl;
-                        dodawanie=macierz2.add(m2);
+                        dodawanie=macierz2+m2;
                         dodawanie.print();
                         break;
                     }
@@ -147,14 +147,14 @@ int main()
                     {
                         matrix odejmowanie(w);
                         cout<<"Wynik odejmowania m2 od macierz2:"<<endl;
-                        odejmowanie=macierz2.subtract(m2);
+                        odejmowanie=macierz2-m2;
                         break;
                     }        
                     case 6:
                     {
                         matrix mnozenie(w);
                         cout<<"Mnozenie macierzy m2 i macierz2"<<endl;
-                        mnozenie=macierz2.multiply(m2); 
+                        mnozenie=macierz2*m2; 
                         mnozenie.print();
                         break;
                     }    
@@ -319,7 +319,7 @@ int main()
                     {
                         matrix dodawanie(w,k);
                         cout<<"Wynik dodawania m2 i macierz1:"<<endl;
-                        dodawanie=macierz1.add(m2);
+                        dodawanie=macierz1+m2;
                         dodawanie.print();
                         break;
                     }
@@ -327,7 +327,7 @@ int main()
                     {
                         matrix odejmowanie(w,k);
                         cout<<"Wynik odejmowania m2 od macierz1:"<<endl;
-                        odejmowanie=macierz1.subtract(m2);
+                        odejmowanie=macierz1-m2;
                         odejmowanie.print();
                         break;
                     }        
@@ -376,7 +376,7 @@ int main()
                                     }
                                     cout<<"Wynik mnozenia:"<<endl;
                                     matrix mnozenie(macierz1.cols(),m3.rows());
-                                    mnozenie=macierz1.multiply(m3);
+                                    mnozenie=macierz1*m3;
                                     mnozenie.print();
                                     gen_m3=false;
                                 }
@@ -557,13 +557,13 @@ int main()
                     case 4:
                     {
                         cout<<"Wynik dodawania m2 i macierz3:"<<endl;
-                        macierz3.add(m2);
+                        macierz3+m2;
                         break;
                     }
                     case 5:
                     {
                         cout<<"Wynik odejmowania m2 od macierz3:"<<endl;
-                        macierz3.subtract(m2);
+                        macierz3-m2;
                         break;
                     }        
                     case 6:
@@ -611,7 +611,7 @@ int main()
                                         }
                                         cout<<"Wynik mnozenia:"<<endl;
                                         matrix mnozenie(macierz3.cols(),m3.rows());
-                                        mnozenie=macierz3.multiply(m3);
+                                        mnozenie=macierz3*m3;
                                         mnozenie.print();
                                         gen_m3=false;
                                     }
@@ -625,7 +625,7 @@ int main()
                         }
                         else
                         {
-                            macierz3.multiply(m2);
+                            macierz3*m2;
                         }
                         break;
                     }     
