@@ -25,6 +25,10 @@ class matrix
     matrix operator+(matrix &m2);
     matrix operator-(matrix &m2);
     matrix operator*(matrix &m2);
+    void operator==(matrix &m2);
+    void operator[](int no_row);
+    void operator++(int value);
+    void operator--(int value);
     int cols();
     int rows();
     void print();

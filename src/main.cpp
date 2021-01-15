@@ -44,7 +44,7 @@ int main()
                 
                 while(gen_m2)
                 {
-                    system("cls");
+                    
                     int wybor_m2;
                     cout<<"Najpierw wygenerujemy macierz m2"<<endl;
                     cout<<"0. Koniec"<<endl;
@@ -61,7 +61,6 @@ int main()
                             } 
                             case 1:
                             {
-                                system("cls");
                                 int n,m,val;
                                 cout<<"Podaj wiersz, kolumne i wartosc dla m2:"<<endl;
                                 cin>>n>>m>>val;
@@ -71,7 +70,7 @@ int main()
                             } 
                             case 2:
                             {
-                                system("cls");
+                                
                                 cout<<"Macierz m2:"<<endl;
                                 m2.print();
                                 break;
@@ -89,12 +88,16 @@ int main()
                     cout<<"1. Pokaz macierz na ekranie (test metody:print())"<<endl;
                     cout<<"2. Dodaj element macierzy (test metody:set())"<<endl;
                     cout<<"3. Pobierz element macierzy (test metody:get())"<<endl;
-                    cout<<"4. Dodaj macierze (test metody:add())"<<endl;
-                    cout<<"5. Odejmij macierze (test metody:subtract())"<<endl;
-                    cout<<"6. Pomnoz macierze (test metody:multiply())"<<endl;
+                    cout<<"4. Dodaj macierze (test metody:operator+())"<<endl;
+                    cout<<"5. Odejmij macierze (test metody:operator-())"<<endl;
+                    cout<<"6. Pomnoz macierze (test metody:oprator*())"<<endl;
                     cout<<"7. Ilosc wierszy macierzy (test metody:rows())"<<endl;
                     cout<<"8. Ilosc kolumn macierzy (test metody:cols())"<<endl;
                     cout<<"9. Zapisz macierz w pliku (test metody:store())"<<endl;
+                    cout<<"10. Porownaj macierz m2 i macierz2 (test metody:operator==)"<<endl;
+                    cout<<"11. Pobierz caly wiersz macierzy (test metody:operator[])"<<endl;
+                    cout<<"12. Zwieksz kazy element o zadana wartosc (test metody:operator++)"<<endl;
+                    cout<<"13. Zmniejsz kazy element o zadana wartosc (test metody:operator--)"<<endl;
                     
                     int number;
                     cin>>number;
@@ -209,9 +212,40 @@ int main()
                             } 
                         }
                         break;
+                    }
+                    case 10:
+                    {
+                        macierz2==m2;
+                        break;
+                    }
+                    case 11:
+                    {
+                        int no_row;
+                        cout<<"Podaj nr wiersza z ktorego chcesz pobrac wartosci:"<<endl;
+                        cin>>no_row;
+                        macierz2[no_row];
+                        break;
+                    }
+                    case 12:
+                    {
+                        int value;
+                        cout<<"Podaj wartosc o ktora chcesz powiekszyc kazdy element: (int)"<<endl;
+                        cin>>value;
+                        macierz2.operator++(value);
+                        macierz2.print();
+                        break;
+                    }
+                    case 13:
+                    {
+                        int value;
+                        cout<<"Podaj wartosc o ktora chcesz pomniejszyc kazdy element: (int)"<<endl;
+                        cin>>value;
+                        macierz2.operator--(value);
+                        macierz2.print();
+                        break;
                     }   
                     default:
-                        system("cls");
+                        
                         cout<<"Wybrano bledny numer, wybierz ponownie"<<endl;
                         break;
                     }

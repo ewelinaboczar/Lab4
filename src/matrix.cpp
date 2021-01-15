@@ -6,6 +6,14 @@
 
 using namespace std;
 
+class WrongRow : public exception
+{
+    virtual const char *what() const throw()
+    {
+        return "Exeption4: Brak zadanego wiersza";
+    }
+};
+
 class WrongElement : public exception
 {
     virtual const char *what() const throw()
@@ -258,5 +266,78 @@ void matrix::store(string filename, string path)
     else
     {
         throw WrongOpenFile();
+    }
+}
+
+void matrix::operator==(matrix &m2)
+{
+    if(row==m2.rows() && column==m2.cols())
+    {
+        int stan=0;
+        for(int i=0;i<row;i++)
+        {
+            for(int j=0;j<column;j++)
+            {
+                if(mac[i][j]==m2.mac[i][j])
+                {
+                    stan++;
+                }
+            }
+        }
+        if(stan==row*column)
+        {
+            cout<<"obie macierze sa identycze"<<endl;
+        }
+        else
+        {
+            cout<<"te dwie macierze sa rozne"<<endl;
+        }
+    }
+    else
+    {
+        throw WrongSize();
+    } 
+}
+
+void matrix::operator[](int no_row)
+{
+    if(no_row>=1 && no_row<=row)
+    {
+        for(int i=0;i<column;i++)
+        {
+            cout<<mac[no_row-1][i]<<"\t";
+        }
+        cout<<endl; 
+    }   
+    else
+    {
+        throw WrongRow();
+    }
+}
+
+void matrix::operator++(int value)
+{
+    double wartosc;
+    for(int i=0;i<row;i++)
+    {
+        for(int j=0;j<column;j++)
+        {
+            wartosc=mac[i][j]+value;
+            mac[i][j]=wartosc;
+            wartosc=0;
+        }
+    }
+}
+void matrix::operator--(int value)
+{
+    double wartosc;
+    for(int i=0;i<row;i++)
+    {
+        for(int j=0;j<column;j++)
+        {
+            wartosc=mac[i][j]-value;
+            mac[i][j]=wartosc;
+            wartosc=0;
+        }
     }
 }
