@@ -98,7 +98,7 @@ int main()
                     cout<<"11. Pobierz caly wiersz macierzy (test metody:operator[])"<<endl;
                     cout<<"12. Zwieksz kazy element o zadana wartosc (test metody:operator++)"<<endl;
                     cout<<"13. Zmniejsz kazy element o zadana wartosc (test metody:operator--)"<<endl;
-                    
+                    cout<<"14. "<<endl;
                     int number;
                     cin>>number;
                     switch (number)
@@ -142,7 +142,7 @@ int main()
                     {
                         matrix dodawanie(w);
                         cout<<"Wynik dodawania m2 i macierz2:"<<endl;
-                        dodawanie=macierz2+m2;
+                        dodawanie=macierz2.operator+(m2);
                         dodawanie.print();
                         break;
                     }
@@ -150,14 +150,14 @@ int main()
                     {
                         matrix odejmowanie(w);
                         cout<<"Wynik odejmowania m2 od macierz2:"<<endl;
-                        odejmowanie=macierz2-m2;
+                        odejmowanie=macierz2.operator-(m2);
                         break;
                     }        
                     case 6:
                     {
                         matrix mnozenie(w);
                         cout<<"Mnozenie macierzy m2 i macierz2"<<endl;
-                        mnozenie=macierz2*m2; 
+                        mnozenie=macierz2.operator*(m2); 
                         mnozenie.print();
                         break;
                     }    
@@ -215,7 +215,7 @@ int main()
                     }
                     case 10:
                     {
-                        macierz2==m2;
+                        macierz2.operator==(m2);
                         break;
                     }
                     case 11:
@@ -223,7 +223,7 @@ int main()
                         int no_row;
                         cout<<"Podaj nr wiersza z ktorego chcesz pobrac wartosci:"<<endl;
                         cin>>no_row;
-                        macierz2[no_row];
+                        macierz2.operator[](no_row);
                         break;
                     }
                     case 12:
@@ -242,6 +242,11 @@ int main()
                         cin>>value;
                         macierz2.operator--(value);
                         macierz2.print();
+                        break;
+                    }
+                    case 14:
+                    {
+                        
                         break;
                     }   
                     default:
@@ -353,7 +358,7 @@ int main()
                     {
                         matrix dodawanie(w,k);
                         cout<<"Wynik dodawania m2 i macierz1:"<<endl;
-                        dodawanie=macierz1+m2;
+                        dodawanie=macierz1.operator+(m2);
                         dodawanie.print();
                         break;
                     }
@@ -361,7 +366,7 @@ int main()
                     {
                         matrix odejmowanie(w,k);
                         cout<<"Wynik odejmowania m2 od macierz1:"<<endl;
-                        odejmowanie=macierz1-m2;
+                        odejmowanie=macierz1.operator-(m2);
                         odejmowanie.print();
                         break;
                     }        
@@ -410,7 +415,7 @@ int main()
                                     }
                                     cout<<"Wynik mnozenia:"<<endl;
                                     matrix mnozenie(macierz1.cols(),m3.rows());
-                                    mnozenie=macierz1*m3;
+                                    mnozenie=macierz1.operator*(m3);
                                     mnozenie.print();
                                     gen_m3=false;
                                 }
@@ -590,14 +595,18 @@ int main()
                     }
                     case 4:
                     {
+                        matrix dodawanie(macierz3.rows(),macierz3.cols());
                         cout<<"Wynik dodawania m2 i macierz3:"<<endl;
-                        macierz3+m2;
+                        dodawanie=macierz3.operator+(m2);
+                        dodawanie.print();
                         break;
                     }
                     case 5:
                     {
+                        matrix odejmowanie(macierz3.rows(),macierz3.cols());
                         cout<<"Wynik odejmowania m2 od macierz3:"<<endl;
-                        macierz3-m2;
+                        odejmowanie=macierz3.operator-(m2);
+                        odejmowanie.print();
                         break;
                     }        
                     case 6:
@@ -645,7 +654,7 @@ int main()
                                         }
                                         cout<<"Wynik mnozenia:"<<endl;
                                         matrix mnozenie(macierz3.cols(),m3.rows());
-                                        mnozenie=macierz3*m3;
+                                        mnozenie=macierz3.operator*(m3);
                                         mnozenie.print();
                                         gen_m3=false;
                                     }
@@ -659,7 +668,9 @@ int main()
                         }
                         else
                         {
-                            macierz3*m2;
+                            matrix mnozenie(macierz3.cols(),m2.rows());
+                            mnozenie=macierz3.operator*(m2);
+                            mnozenie.print();
                         }
                         break;
                     }     

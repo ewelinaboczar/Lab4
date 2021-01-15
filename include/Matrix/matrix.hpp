@@ -29,6 +29,7 @@ class matrix
     void operator[](int no_row);
     void operator++(int value);
     void operator--(int value);
+    //void operator=(matrix &m2);
     int cols();
     int rows();
     void print();

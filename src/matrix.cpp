@@ -328,6 +328,7 @@ void matrix::operator++(int value)
         }
     }
 }
+
 void matrix::operator--(int value)
 {
     double wartosc;
