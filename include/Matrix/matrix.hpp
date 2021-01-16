@@ -6,6 +6,7 @@
 #include <fstream>
 #include <string>
 #include <string.h>
+#include <iostream>
 
 
 class matrix
@@ -22,14 +23,15 @@ class matrix
 
     void set(int n,int m,double val);
     double get(int n,int m);
+    friend void operator<<(std::ofstream &plik,matrix &macierz);
     matrix operator+(matrix &m2);
     matrix operator-(matrix &m2);
     matrix operator*(matrix &m2);
     void operator==(matrix &m2);
+    void operator!=(matrix &m2);
     void operator[](int no_row);
     void operator++(int value);
     void operator--(int value);
-    //void operator=(matrix &m2);
     int cols();
     int rows();
     void print();

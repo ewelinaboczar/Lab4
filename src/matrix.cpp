@@ -288,10 +288,6 @@ void matrix::operator==(matrix &m2)
         {
             cout<<"obie macierze sa identycze"<<endl;
         }
-        else
-        {
-            cout<<"te dwie macierze sa rozne"<<endl;
-        }
     }
     else
     {
@@ -313,6 +309,32 @@ void matrix::operator[](int no_row)
     {
         throw WrongRow();
     }
+}
+
+void matrix::operator!=(matrix &m2)
+{
+    if(row==m2.rows() && column==m2.cols())
+    {
+        int stan=0;
+        for(int i=0;i<row;i++)
+        {
+            for(int j=0;j<column;j++)
+            {
+                if(mac[i][j]==m2.mac[i][j])
+                {
+                    stan++;
+                }
+            }
+        }
+        if(stan!=row*column)
+        {
+            cout<<"te dwie macierze sa rozne"<<endl;
+        }
+    }
+    else
+    {
+        throw WrongSize();
+    } 
 }
 
 void matrix::operator++(int value)
@@ -340,5 +362,29 @@ void matrix::operator--(int value)
             mac[i][j]=wartosc;
             wartosc=0;
         }
+    }
+}
+
+void operator<<(std::ofstream &plik,matrix &macierz)
+{
+    int ROW = macierz.rows();
+    int COL = macierz.cols();
+
+    if (plik.is_open())
+    {
+        plik << ROW << " " << COL << endl;
+        for (int i = 0; i < ROW; i++)
+        {
+            for (int j = 0; j < COL; j++)
+            {
+                plik << macierz.mac[i][j] << "\t";
+            }
+            plik << "\n";
+        }
+        plik.close();
+    }
+    else
+    {
+        throw WrongOpenFile();
     }
 }

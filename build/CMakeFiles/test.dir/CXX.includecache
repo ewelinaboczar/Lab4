@@ -17,6 +17,8 @@ string
 -
 string.h
 -
+iostream
+-
 
 E:/Studia/Semestr_III/JIPP/Laboratorium_4/src/main.cpp
 iostream
@@ -30,6 +32,8 @@ windows.h
 string.h
 -
 string
+-
+fstream
 -
 
 E:/Studia/Semestr_III/JIPP/Laboratorium_4/src/matrix.cpp

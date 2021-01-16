@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <string.h>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -94,11 +95,12 @@ int main()
                     cout<<"7. Ilosc wierszy macierzy (test metody:rows())"<<endl;
                     cout<<"8. Ilosc kolumn macierzy (test metody:cols())"<<endl;
                     cout<<"9. Zapisz macierz w pliku (test metody:store())"<<endl;
-                    cout<<"10. Porownaj macierz m2 i macierz2 (test metody:operator==)"<<endl;
-                    cout<<"11. Pobierz caly wiersz macierzy (test metody:operator[])"<<endl;
-                    cout<<"12. Zwieksz kazy element o zadana wartosc (test metody:operator++)"<<endl;
-                    cout<<"13. Zmniejsz kazy element o zadana wartosc (test metody:operator--)"<<endl;
-                    cout<<"14. "<<endl;
+                    cout<<"10. Sprawdz czy m2 i macierz2 sa rowne(test metody:operator==)"<<endl;
+                    cout<<"11. Sprawdz czy m2 i macierz2 sa rozne(test metody:operator!=)"<<endl;
+                    cout<<"12. Pobierz caly wiersz macierzy (test metody:operator[])"<<endl;
+                    cout<<"13. Zwieksz kazy element o zadana wartosc (test metody:operator++)"<<endl;
+                    cout<<"14. Zmniejsz kazy element o zadana wartosc (test metody:operator--)"<<endl;
+                    cout<<"15. Test operatora wyjscia (metoda: fiend operator<<())"<<endl;
                     int number;
                     cin>>number;
                     switch (number)
@@ -220,13 +222,18 @@ int main()
                     }
                     case 11:
                     {
+                        macierz2.operator!=(m2);
+                        break;
+                    }
+                    case 12:
+                    {
                         int no_row;
                         cout<<"Podaj nr wiersza z ktorego chcesz pobrac wartosci:"<<endl;
                         cin>>no_row;
                         macierz2.operator[](no_row);
                         break;
                     }
-                    case 12:
+                    case 13:
                     {
                         int value;
                         cout<<"Podaj wartosc o ktora chcesz powiekszyc kazdy element: (int)"<<endl;
@@ -235,7 +242,7 @@ int main()
                         macierz2.print();
                         break;
                     }
-                    case 13:
+                    case 14:
                     {
                         int value;
                         cout<<"Podaj wartosc o ktora chcesz pomniejszyc kazdy element: (int)"<<endl;
@@ -244,9 +251,12 @@ int main()
                         macierz2.print();
                         break;
                     }
-                    case 14:
+                    case 15:
                     {
-                        
+                        std::ofstream plik;
+                        plik.open("nowy_plik.txt", std::ofstream::out);
+                        plik<<macierz2;
+                        cout<<"Macierz2 zostala zapisana do pliku nowy_plik.txt"<<endl;
                         break;
                     }   
                     default:
